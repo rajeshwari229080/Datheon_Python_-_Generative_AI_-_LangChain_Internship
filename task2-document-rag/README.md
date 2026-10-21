@@ -1,5 +1,5 @@
 # Task 2: Grounded Document Q&A Assistant with RAG & Vector Embeddings
-## Person 1 Implementation — ApexAI Suite
+## ApexAI Engineering Operations Suite
 
 A vector-augmented retrieval-augmented generation (RAG) system capable of ingesting PDF and plaintext documents, chunking text recursively with metadata preservation, performing cosine similarity search, and generating grounded responses with explicit source-page citations and strict hallucination abstention.
 

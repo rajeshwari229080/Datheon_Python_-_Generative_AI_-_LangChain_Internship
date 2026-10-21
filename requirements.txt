@@ -1,5 +1,5 @@
 # ==============================================================================
-# Person 1 AI Internship Suite (ApexAI Suite) - Unified Requirements
+# ApexAI Intelligent Operations Suite - Unified Requirements
 # ==============================================================================
 
 # Core & Data Validation

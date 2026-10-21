@@ -1,5 +1,5 @@
 # Task 1: Structured LLM Prompt Pipeline & JSON Extractor
-## Person 1 Implementation — ApexAI Suite
+## ApexAI Engineering Operations Suite
 
 A production-grade information extraction engine that ingests unstructured, noisy, or OCR-scanned text documents (such as financial invoices and candidate resumes) and extracts strictly validated JSON matching Pydantic v2 schemas.
 

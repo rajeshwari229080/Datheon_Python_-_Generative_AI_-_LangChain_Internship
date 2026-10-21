@@ -1,4 +1,4 @@
-# Python Generative AI & LangChain Internship — Person 1 Suite
+# Python Generative AI & LangChain Internship
 ## ApexAI Suite: Production-Grade Multi-Task AI Engineering System
 
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
@@ -6,17 +6,17 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.42-red.svg)](https://streamlit.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
 
-An enterprise-ready AI engineering suite built for the **Google Antigravity Python + Generative AI & LangChain Internship**. This repository delivers **Person 1's original, production-grade implementation** across four foundational artificial intelligence competencies, unified by a central SaaS operations portal.
+An enterprise-ready AI engineering suite built for the **Google Antigravity Python + Generative AI & LangChain Internship**. This repository delivers a production-grade implementation across four foundational artificial intelligence competencies, unified by a central SaaS operations portal.
 
 ---
 
 ## 🏛️ Architecture Overview
 
-The suite is located in [`person1-internship-suite/`](./person1-internship-suite/) and contains four independent, fully tested projects:
+The repository contains four independent, fully tested projects:
 
 ```text
-person1-internship-suite/
-├── index.html                   # Central SaaS Portal & Launcher Dashboard
+.
+├── index.html                   # Central SaaS Portal & Operations Dashboard
 ├── launcher.py                  # CLI Orchestrator & Multi-Project Server
 ├── requirements.txt             # Unified Suite Dependencies
 ├── .env.example                 # Configuration & API Key Template
@@ -71,19 +71,19 @@ git clone https://github.com/rajeshwari229080/Python-Generative-AI-LangChain-Int
 cd Python-Generative-AI-LangChain-Internship
 python -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-pip install -r person1-internship-suite/requirements.txt
+pip install -r requirements.txt
 ```
 
 ### 2. Configure Environment (Optional for Live Models)
 Copy `.env.example` to `.env`. The entire suite functions immediately in **Deterministic Mock Mode** with zero configuration. Add your Gemini or OpenAI API key to enable live generation.
 ```bash
-cp person1-internship-suite/.env.example person1-internship-suite/.env
+cp .env.example .env
 ```
 
 ### 3. Launch the Central Operations Portal
-Open [`person1-internship-suite/index.html`](./person1-internship-suite/index.html) in any browser or run:
+Open [`index.html`](./index.html) in any browser or run:
 ```bash
-python person1-internship-suite/launcher.py --portal
+python launcher.py --portal
 ```
 
 ---
@@ -91,15 +91,15 @@ python person1-internship-suite/launcher.py --portal
 ## 🧪 Automated Testing
 Run the complete automated test suite across all 4 tasks:
 ```bash
-python -m pytest person1-internship-suite/task1-json-extractor/tests -v
-python -m pytest person1-internship-suite/task2-document-rag/tests -v
-python -m pytest person1-internship-suite/task3-tool-agent/tests -v
-python -m pytest person1-internship-suite/task4-streamlit-chatbot/tests -v
+python -m pytest task1-json-extractor/tests -v
+python -m pytest task2-document-rag/tests -v
+python -m pytest task3-tool-agent/tests -v
+python -m pytest task4-streamlit-chatbot/tests -v
 ```
 
 ---
 
-## 👤 Author & Attribution
+## 👤 Attribution & Repository
 - **Internship**: Google Antigravity Python + Generative AI & LangChain Internship
-- **Persona**: Person 1 (Independent Implementation & Architecture)
+- **Suite**: ApexAI Engineering Operations Suite
 - **Repository**: [rajeshwari229080/Python-Generative-AI-LangChain-Internship](https://github.com/rajeshwari229080/Python-Generative-AI-LangChain-Internship.git)

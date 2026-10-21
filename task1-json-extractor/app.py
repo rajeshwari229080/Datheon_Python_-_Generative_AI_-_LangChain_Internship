@@ -184,7 +184,7 @@ def index_page():
   <div class="container">
     <header>
       <div class="brand">
-        <span class="brand-badge">ApexAI P1</span>
+        <span class="brand-badge">ApexAI</span>
         <div>
           <h1>Task 1: Structured LLM Prompt Pipeline & JSON Extractor</h1>
           <p style="font-size: 13px; color: var(--text-muted);">Pydantic v2 Strict Schema Validation & Self-Healing Extraction Pipeline</p>

@@ -149,7 +149,7 @@ def index_page():
   <div class="container">
     <header>
       <div class="brand">
-        <span class="brand-badge">ApexAI P1</span>
+        <span class="brand-badge">ApexAI</span>
         <div>
           <h1>Task 2: Grounded Document Q&A Assistant (RAG)</h1>
           <p style="font-size: 13px; color: var(--text-muted);">Vector Embeddings, Semantic Chunking, Page Citations & Hallucination Abstention</p>
