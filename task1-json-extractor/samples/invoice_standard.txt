@@ -1,0 +1,27 @@
+INVOICE #INV-2025-0442
+Vendor: Apex Cloud Infrastructure LLC
+Tax ID: US-449182371 | Email: accounts@apexcloud.io | Phone: +1 (415) 555-0912
+Address: 500 Howard Street, Suite 300, San Francisco, CA 94105
+
+Billed To: HyperScale Intelligence Inc
+Contact: finance@hyperscale.ai | Phone: +1 (650) 555-7721
+Address: 1200 Innovation Way, Palo Alto, CA 94301
+
+Date Issued: 2025-02-15
+Payment Due: 2025-03-15
+Currency: USD
+Payment Terms: Net 30
+
+Line Items:
+1. High-Performance GPU Cluster (8x NVIDIA H100 SXM5) - Monthly Lease
+   Qty: 1.0 | Unit Price: $14,500.00 | Total: $14,500.00
+2. Dedicated 100 Gbps Low-Latency Interconnect Gateway
+   Qty: 2.0 | Unit Price: $850.00 | Total: $1,700.00
+3. Distributed Object Storage (200 TB High-IOPS Tier)
+   Qty: 1.0 | Unit Price: $3,200.00 | Total: $3,200.00
+
+Subtotal: $19,400.00
+Sales Tax (8.25%): $1,600.50
+Early Payment Discount: -$400.00
+Total Amount Due: $20,600.50
+Payment remittance via wire transfer or ACH.

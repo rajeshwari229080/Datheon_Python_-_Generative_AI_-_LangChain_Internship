@@ -1,0 +1,19 @@
+*** SCANNED OCR BILLING NOTICE ***
+APEX CLOUD SYSTEMS [TAX_ID: US-449182371]
+support billing: accounts@apexcloud.io | TEL: 415-555-0912
+ADDR: 500 Howard Street, San Francisco, CA
+
+INV REF: INV-2025-9981 --- DTD: 2025-01-10
+CUSTOMER: Datacore Analytics LLC (billing@datacore.net)
+100 Park Ave, New York, NY
+CURR: US DOLLARS
+
+-- CHARGES AND BILLABLE ITEMS --
+* Cloud Managed Vector DB Shards (3 nodes): 3 qty @ 600.00 ea => 1800.00
+* Automated Backup & Snapshotting: 1 @ 250.00 => 250.00
+
+sub-total is 2050.00
+applicable state tax (8%): 164.00
+promotional discount: 0.00
+TOTAL PAYABLE: 2214.00
+Please remit payment within 15 calendar days.

@@ -1,0 +1,29 @@
+DR. ARJUN RAMAN
+Seattle, WA | arjun.raman@apexai.dev | +1 (206) 555-0144
+LinkedIn: linkedin.com/in/arjunraman | GitHub: github.com/arjunraman
+
+PROFESSIONAL SUMMARY
+Senior Distributed AI Systems Engineer with 8+ years architecting fault-tolerant LLM pipelines,
+agentic execution environments, and sub-10ms vector search backends. Published researcher in scalable AI inference.
+
+EXPERIENCE
+Staff AI Infrastructure Engineer | Apex Systems (2022 - Present) | Seattle, WA
+- Designed high-throughput vector embedding retrieval microservice serving 40k QPS across 4 regions.
+- Implemented ReAct agent governance architecture eliminating unsafe shell executions and arbitrary tool calls.
+- Reduced inference infrastructure costs by 38% via INT8/FP8 dynamic quantization.
+Technologies: Python, PyTorch, vLLM, FastAPI, Kubernetes, Docker, Ray, Triton.
+
+Senior Machine Learning Engineer | DeepFlow Data (2018 - 2022) | Austin, TX
+- Built automated document ingestion and structured metadata extraction engine processing 1M+ daily records.
+- Implemented recursive semantic chunking and cross-encoder reranking algorithms.
+Technologies: Python, Spark, HuggingFace, ChromaDB, AWS, PostgreSQL.
+
+EDUCATION
+Ph.D. in Computer Science (Artificial Intelligence) | University of Washington (2018)
+B.S. in Electrical Engineering & Computer Science | UC Berkeley (2014, GPA: 3.94)
+
+CORE COMPETENCIES
+Languages: Python, C++, Go, Rust, SQL, Bash
+Frameworks: PyTorch, LangChain, FastAPI, Pydantic, Streamlit, Docker
+Cloud: AWS, Google Cloud Platform, Terraform, Kubernetes, Prometheus
+Databases: PostgreSQL, ChromaDB, Redis, Milvus

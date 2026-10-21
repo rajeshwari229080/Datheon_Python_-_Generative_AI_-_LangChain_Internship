@@ -1,0 +1,27 @@
+SARAH LIN
+New York, NY | sarah.lin@apexai.internal | +1 (212) 555-7890
+LinkedIn: linkedin.com/in/sarahlin-data | GitHub: github.com/sarahlin-data
+
+PROFESSIONAL SUMMARY
+Data & ML Platform Engineer with 5+ years of experience constructing real-time data streaming pipelines,
+Lakehouse architectures (Delta Lake, Iceberg), and automated feature stores.
+
+EXPERIENCE
+Senior Data Platform Engineer | Quantum Stream Media (2021 - Present) | New York, NY
+- Engineered Apache Flink stream processing pipeline analyzing 250M events per hour with sub-second SLA.
+- Reduced cloud data warehouse compute costs by 32% using dbt incremental models and columnar compaction.
+Technologies: Python, Java, Apache Flink, Kafka, dbt, Snowflake, Docker.
+
+Data Engineer | MetricFlow Systems (2019 - 2021) | Boston, MA
+- Created automated schema evolution validators using Pydantic and JSONSchema for inbound customer event telemetry.
+- Deployed Airflow orchestrations integrating 40+ heterogeneous REST APIs.
+Technologies: Python, SQL, Airflow, PostgreSQL, AWS S3, Redshift.
+
+EDUCATION
+B.S. in Computer Science | Columbia University (2019)
+
+SKILLS
+Languages: Python, SQL, Java, Scala, Bash
+Tools & Frameworks: dbt, Airflow, Flink, Spark, Pydantic, FastAPI
+Cloud & Databases: AWS, Snowflake, BigQuery, PostgreSQL, Redis
+Certifications: Databricks Certified Data Engineer Professional
