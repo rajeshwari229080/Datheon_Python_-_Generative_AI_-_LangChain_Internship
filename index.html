@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ApexAI Suite — Person 1 Engineering Operations Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: rgba(17, 24, 39, 0.75);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover: rgba(6, 182, 212, 0.18);
+      --accent-cyan: #06b6d4;
+      --accent-blue: #3b82f6;
+      --accent-purple: #8b5cf6;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --text-dim: #6b7280;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(6, 182, 212, 0.12) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.10) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(139, 92, 246, 0.05) 0px, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    .container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 32px 24px 80px 24px;
+    }
+
+    /* Top Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 40px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-badge {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      color: #fff;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 14px rgba(6, 182, 212, 0.3);
+    }
+
+    .brand-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .brand-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .badge-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      background: rgba(16, 185, 129, 0.12);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+
+    .pulse {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-emerald);
+      box-shadow: 0 0 8px var(--accent-emerald);
+      animation: pulse-dot 1.8s infinite;
+    }
+
+    @keyframes pulse-dot {
+      0% { transform: scale(0.9); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; }
+      100% { transform: scale(0.9); opacity: 0.8; }
+    }
+
+    .nav-btn {
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      border-radius: 8px;
+      font-size: 13px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      margin-bottom: 56px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-pill {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      background: rgba(6, 182, 212, 0.1);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(6, 182, 212, 0.25);
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      background: linear-gradient(180deg, #ffffff 30%, #9ca3af 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Grid Layout */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    @media (max-width: 1024px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+
+    /* Project Cards */
+    .project-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.25s ease;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    .project-card:hover {
+      border-color: rgba(6, 182, 212, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px -15px rgba(6, 182, 212, 0.15);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .task-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+
+    .tag-t1 { background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); border: 1px solid rgba(6, 182, 212, 0.3); }
+    .tag-t2 { background: rgba(59, 130, 246, 0.15); color: var(--accent-blue); border: 1px solid rgba(59, 130, 246, 0.3); }
+    .tag-t3 { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); border: 1px solid rgba(245, 158, 11, 0.3); }
+    .tag-t4 { background: rgba(139, 92, 246, 0.15); color: var(--accent-purple); border: 1px solid rgba(139, 92, 246, 0.3); }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .card-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .feature-list li {
+      font-size: 13px;
+      color: #d1d5db;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .feature-list li::before {
+      content: "✓";
+      color: var(--accent-cyan);
+      font-weight: 700;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 24px;
+    }
+
+    .tech-pill {
+      font-size: 11.5px;
+      font-family: var(--font-mono);
+      padding: 3px 9px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      color: #94a3b8;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    /* Terminal Launcher Box */
+    .launch-box {
+      background: #060911;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .launch-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-dim);
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .command-line {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      color: #a5f3fc;
+      overflow-x: auto;
+      white-space: nowrap;
+      display: block;
+      padding-right: 60px;
+    }
+
+    .copy-btn {
+      position: absolute;
+      right: 10px;
+      top: 26px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #e5e7eb;
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .copy-btn:hover {
+      background: var(--accent-cyan);
+      color: #000;
+      border-color: var(--accent-cyan);
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .port-badge {
+      font-family: var(--font-mono);
+      color: var(--accent-cyan);
+    }
+
+    /* Architecture / Testing Strip */
+    .info-strip {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 32px;
+    }
+
+    .strip-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      margin-top: 16px;
+    }
+
+    .spec-table th, .spec-table td {
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .spec-table th {
+      color: var(--text-dim);
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-dim);
+      padding-top: 40px;
+      border-top: 1px solid var(--card-border);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Navigation -->
+    <nav>
+      <div class="brand">
+        <span class="logo-badge">ApexAI</span>
+        <div>
+          <div class="brand-title">Person 1 Engineering Suite</div>
+          <div class="brand-subtitle">Google Antigravity AI & LangChain Internship</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <span class="badge-live"><span class="pulse"></span> 4 Projects Ready</span>
+        <a href="https://github.com/rajeshwari229080/Python-Generative-AI-LangChain-Internship.git" target="_blank" class="nav-btn">GitHub Repository</a>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <span class="hero-pill">Autonomous Intelligence Architecture</span>
+      <h1>Production AI Engineering Operations Portal</h1>
+      <p>
+        A unified multi-task intelligence suite delivering strict Pydantic v2 JSON extraction,
+        grounded RAG with source-page citations, secure autonomous ReAct tool agents, and a reactive Streamlit chat interface.
+      </p>
+    </section>
+
+    <!-- 4 Project Cards Grid -->
+    <div class="grid">
+      <!-- Task 1 Card -->
+      <div class="project-card">
+        <div class="card-header">
+          <span class="task-tag tag-t1">Task 1</span>
+          <span class="port-badge">PORT 8001</span>
+        </div>
+        <h2 class="card-title">Structured LLM Prompt Pipeline & JSON Extractor</h2>
+        <p class="card-desc">
+          Parses messy financial invoices and candidate resumes into strictly typed Pydantic v2 schemas.
+          Features multi-pass JSON sanitization, few-shot prompt exemplars, and self-healing validation retry loops.
+        </p>
+        <ul class="feature-list">
+          <li>Invoice & Resume Pydantic v2 models with total consistency checks</li>
+          <li>Dual-provider support: Google Gemini, OpenAI, & Offline Mock</li>
+          <li>Automatic markdown fence stripping & trailing comma repair</li>
+          <li>FastAPI web interface with live JSON download & CLI mode</li>
+        </ul>
+        <div class="tech-stack">
+          <span class="tech-pill">Pydantic v2</span>
+          <span class="tech-pill">FastAPI</span>
+          <span class="tech-pill">Gemini 1.5</span>
+          <span class="tech-pill">Uvicorn</span>
+          <span class="tech-pill">Pytest</span>
+        </div>
+        <div class="launch-box">
+          <div class="launch-label">
+            <span>Terminal Launch Command</span>
+          </div>
+          <code class="command-line">python task1-json-extractor/app.py --serve</code>
+          <button class="copy-btn" onclick="copyCmd(this, 'python task1-json-extractor/app.py --serve')">Copy</button>
+        </div>
+        <div class="card-footer">
+          <span>Web UI: <a href="http://127.0.0.1:8001" target="_blank" style="color: var(--accent-cyan);">http://127.0.0.1:8001</a></span>
+          <span>CLI: <code>--file samples/invoice.txt</code></span>
+        </div>
+      </div>
+
+      <!-- Task 2 Card -->
+      <div class="project-card">
+        <div class="card-header">
+          <span class="task-tag tag-t2">Task 2</span>
+          <span class="port-badge">PORT 8002</span>
+        </div>
+        <h2 class="card-title">Grounded Document Q&A Assistant (RAG)</h2>
+        <p class="card-desc">
+          Vector-augmented retrieval engine ingesting PDFs and text documents. Performs recursive semantic chunking,
+          vector indexing, and synthesizes answers strictly grounded in document context with page citations.
+        </p>
+        <ul class="feature-list">
+          <li>PDF & plaintext ingestion with page number metadata preservation</li>
+          <li>Recursive character semantic chunker (600 char / 120 overlap)</li>
+          <li>Dual vector store: ChromaDB & high-performance Cosine index</li>
+          <li>Strict abstention protocol: refuses hallucination when facts are absent</li>
+        </ul>
+        <div class="tech-stack">
+          <span class="tech-pill">pypdf</span>
+          <span class="tech-pill">ChromaDB / Vector</span>
+          <span class="tech-pill">FastAPI</span>
+          <span class="tech-pill">Cosine Rerank</span>
+        </div>
+        <div class="launch-box">
+          <div class="launch-label">
+            <span>Terminal Launch Command</span>
+          </div>
+          <code class="command-line">python task2-document-rag/app.py --serve</code>
+          <button class="copy-btn" onclick="copyCmd(this, 'python task2-document-rag/app.py --serve')">Copy</button>
+        </div>
+        <div class="card-footer">
+          <span>Web UI: <a href="http://127.0.0.1:8002" target="_blank" style="color: var(--accent-blue);">http://127.0.0.1:8002</a></span>
+          <span>Abstention: <code>Active</code></span>
+        </div>
+      </div>
+
+      <!-- Task 3 Card -->
+      <div class="project-card">
+        <div class="card-header">
+          <span class="task-tag tag-t3">Task 3</span>
+          <span class="port-badge">CLI RUNNER</span>
+        </div>
+        <h2 class="card-title">Multi-Tool Autonomous AI Agent</h2>
+        <p class="card-desc">
+          Autonomous ReAct reasoning loop with tool calling across web search, safe computational math,
+          and sandboxed file operations. Enforces hard safety boundaries and auditable step-by-step traces.
+        </p>
+        <ul class="feature-list">
+          <li>AST-based safe math evaluator: strictly zero <code>eval()</code> or <code>exec()</code></li>
+          <li>Jailed file reader: blocks path traversal (<code>../</code>, symlinks)</li>
+          <li>DuckDuckGo web search tool with query sanitization & timeout limits</li>
+          <li>Max iteration guardrails (6 loops) & auditable execution logs</li>
+        </ul>
+        <div class="tech-stack">
+          <span class="tech-pill">LangChain / ReAct</span>
+          <span class="tech-pill">Python AST</span>
+          <span class="tech-pill">Sandbox Jail</span>
+          <span class="tech-pill">DuckDuckGo</span>
+        </div>
+        <div class="launch-box">
+          <div class="launch-label">
+            <span>Terminal Launch Command</span>
+          </div>
+          <code class="command-line">python task3-tool-agent/main.py --interactive</code>
+          <button class="copy-btn" onclick="copyCmd(this, 'python task3-tool-agent/main.py --interactive')">Copy</button>
+        </div>
+        <div class="card-footer">
+          <span>Execution Trace: <code>Auditable</code></span>
+          <span>Security Sandbox: <code>Jailed</code></span>
+        </div>
+      </div>
+
+      <!-- Task 4 Card -->
+      <div class="project-card">
+        <div class="card-header">
+          <span class="task-tag tag-t4">Task 4</span>
+          <span class="port-badge">PORT 8501</span>
+        </div>
+        <h2 class="card-title">Interactive Full-Stack AI Chatbot</h2>
+        <p class="card-desc">
+          Conversational interface built with Streamlit featuring real-time response streaming, session state isolation,
+          conversation history persistence, persona configuration, and integration with RAG and Tool-Agent pipelines.
+        </p>
+        <ul class="feature-list">
+          <li>Streamlit reactive layout: <code>st.chat_message</code> & <code>st.session_state</code></li>
+          <li>Persona presets: Senior Software Architect, Code Reviewer, Research Tutor</li>
+          <li>Integrated multi-mode: standard chat, document Q&A, and live tool agent</li>
+          <li>Session reset and one-click JSON/Markdown conversation export</li>
+        </ul>
+        <div class="tech-stack">
+          <span class="tech-pill">Streamlit</span>
+          <span class="tech-pill">Streaming SSR</span>
+          <span class="tech-pill">Session State</span>
+          <span class="tech-pill">RAG / Agent Hook</span>
+        </div>
+        <div class="launch-box">
+          <div class="launch-label">
+            <span>Terminal Launch Command</span>
+          </div>
+          <code class="command-line">streamlit run task4-streamlit-chatbot/app.py</code>
+          <button class="copy-btn" onclick="copyCmd(this, 'streamlit run task4-streamlit-chatbot/app.py')">Copy</button>
+        </div>
+        <div class="card-footer">
+          <span>Web UI: <a href="http://127.0.0.1:8501" target="_blank" style="color: var(--accent-purple);">http://127.0.0.1:8501</a></span>
+          <span>Streaming: <code>Real-Time</code></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- System Verification & Testing Strip -->
+    <section class="info-strip">
+      <div class="strip-title">
+        <span>🧪 Comprehensive Automated Test Matrix</span>
+      </div>
+      <p style="font-size: 14px; color: var(--text-muted);">
+        Every project includes automated pytest test suites covering schemas, boundary constraints, security sandboxes, and edge cases.
+      </p>
+
+      <table class="spec-table">
+        <thead>
+          <tr>
+            <th>Module</th>
+            <th>Primary Test Focus</th>
+            <th>Framework</th>
+            <th>Run Command</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Task 1</strong> Extractor</td>
+            <td>Pydantic v2 validation, line-item sum consistency, malformed JSON recovery</td>
+            <td>Pytest</td>
+            <td><code>pytest task1-json-extractor/tests -v</code></td>
+          </tr>
+          <tr>
+            <td><strong>Task 2</strong> Document RAG</td>
+            <td>Recursive chunking overlap, cosine similarity retrieval, strict abstention</td>
+            <td>Pytest</td>
+            <td><code>pytest task2-document-rag/tests -v</code></td>
+          </tr>
+          <tr>
+            <td><strong>Task 3</strong> Tool Agent</td>
+            <td>AST calculator injection resistance, directory jail traversal blocking, ReAct trace</td>
+            <td>Pytest</td>
+            <td><code>pytest task3-tool-agent/tests -v</code></td>
+          </tr>
+          <tr>
+            <td><strong>Task 4</strong> Streamlit Chat</td>
+            <td>Session isolation, persona prompt injection, conversation export serialization</td>
+            <td>Pytest</td>
+            <td><code>pytest task4-streamlit-chatbot/tests -v</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>Person 1 Original Implementation • ApexAI Suite • Google Antigravity Internship Deliverable</p>
+      <p style="margin-top: 6px; font-size: 12px; color: #4b5563;">Clean Architecture • Pydantic v2 • LangChain • ChromaDB • Streamlit • Python 3.12</p>
+    </footer>
+  </div>
+
+  <script>
+    function copyCmd(btn, text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = btn.textContent;
+        btn.textContent = 'Copied!';
+        btn.style.background = '#10b981';
+        btn.style.color = '#000';
+        setTimeout(() => {
+          btn.textContent = orig;
+          btn.style.background = '';
+          btn.style.color = '';
+        }, 1800);
+      });
+    }
+  </script>
+</body>
+</html>
