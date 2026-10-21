@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="100%" height="520">
+  <defs>
+    <linearGradient id="gridBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F8FAFC" />
+    </linearGradient>
+    <filter id="taskShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#0F172A" flood-opacity="0.05" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="520" rx="16" fill="url(#gridBg)" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Section Header -->
+  <g transform="translate(60, 40)">
+    <text x="0" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="800" fill="#0F172A">Four Production-Grade AI Engineering Pillars</text>
+    <text x="0" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="400" fill="#64748B">Modular architectures built with deterministic fail-safes and enterprise testing standards.</text>
+  </g>
+
+  <!-- 4 Columns Container -->
+  <!-- CARD 1: Task 1 -->
+  <g transform="translate(60, 120)">
+    <rect width="250" height="340" rx="14" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2" filter="url(#taskShadow)" />
+    <rect width="250" height="6" rx="3" fill="#3B82F6" />
+    <g transform="translate(20, 28)">
+      <rect width="36" height="36" rx="8" fill="#EFF6FF" />
+      <text x="18" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" text-anchor="middle">📄</text>
+      <text x="46" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#2563EB">TASK 01</text>
+      <text x="0" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#0F172A">Structured JSON</text>
+      <text x="0" y="84" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#0F172A">LLM Pipeline</text>
+
+      <text x="0" y="118" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="500" fill="#475569">
+        Extracts complex financial invoices &amp; resumes into validated Pydantic v2 schemas.
+      </text>
+
+      <!-- Key bullets -->
+      <g transform="translate(0, 170)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#334155">
+        <text x="0" y="0">• Pydantic v2 Validation</text>
+        <text x="0" y="22">• Multi-Pass JSON Healer</text>
+        <text x="0" y="44">• FastAPI UI &amp; CLI Runner</text>
+        <text x="0" y="66">• 11 Automated Pytests</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- CARD 2: Task 2 -->
+  <g transform="translate(335, 120)">
+    <rect width="250" height="340" rx="14" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2" filter="url(#taskShadow)" />
+    <rect width="250" height="6" rx="3" fill="#10B981" />
+    <g transform="translate(20, 28)">
+      <rect width="36" height="36" rx="8" fill="#ECFDF5" />
+      <text x="18" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" text-anchor="middle">📚</text>
+      <text x="46" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#059669">TASK 02</text>
+      <text x="0" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#0F172A">Grounded RAG</text>
+      <text x="0" y="84" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#0F172A">Document Q&amp;A</text>
+
+      <text x="0" y="118" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="500" fill="#475569">
+        Parses text and PDF policies with semantic chunking, dual vector store, &amp; citations.
+      </text>
+
+      <!-- Key bullets -->
+      <g transform="translate(0, 170)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#334155">
+        <text x="0" y="0">• Recursive Semantic Chunker</text>
+        <text x="0" y="22">• Cosine Vector Retrieval</text>
+        <text x="0" y="44">• Zero-Hallucination Guard</text>
+        <text x="0" y="66">• 5 Comprehensive Tests</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- CARD 3: Task 3 -->
+  <g transform="translate(610, 120)">
+    <rect width="250" height="340" rx="14" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2" filter="url(#taskShadow)" />
+    <rect width="250" height="6" rx="3" fill="#8B5CF6" />
+    <g transform="translate(20, 28)">
+      <rect width="36" height="36" rx="8" fill="#F5F3FF" />
+      <text x="18" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" text-anchor="middle">🤖</text>
+      <text x="46" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#7C3AED">TASK 03</text>
+      <text x="0" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#0F172A">Autonomous ReAct</text>
+      <text x="0" y="84" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#0F172A">Multi-Tool Agent</text>
+
+      <text x="0" y="118" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="500" fill="#475569">
+        Reasoning loop orchestrating calculator, jailed file reader, and web search tools.
+      </text>
+
+      <!-- Key bullets -->
+      <g transform="translate(0, 170)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#334155">
+        <text x="0" y="0">• AST Calculator (No Eval)</text>
+        <text x="0" y="22">• Jailed Workspace Security</text>
+        <text x="0" y="44">• Execution Trace Logging</text>
+        <text x="0" y="66">• 9 Security Tests Pass</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- CARD 4: Task 4 -->
+  <g transform="translate(885, 120)">
+    <rect width="250" height="340" rx="14" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2" filter="url(#taskShadow)" />
+    <rect width="250" height="6" rx="3" fill="#EF4444" />
+    <g transform="translate(20, 28)">
+      <rect width="36" height="36" rx="8" fill="#FEF2F2" />
+      <text x="18" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" text-anchor="middle">💬</text>
+      <text x="46" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#DC2626">TASK 04</text>
+      <text x="0" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#0F172A">Interactive Full-Stack</text>
+      <text x="0" y="84" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#0F172A">Streamlit Bot</text>
+
+      <text x="0" y="118" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="500" fill="#475569">
+        Conversational interface with token streaming, persona presets, &amp; RAG adapters.
+      </text>
+
+      <!-- Key bullets -->
+      <g transform="translate(0, 170)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#334155">
+        <text x="0" y="0">• Real-Time Token Stream</text>
+        <text x="0" y="22">• Session State Isolation</text>
+        <text x="0" y="44">• Markdown / JSON Export</text>
+        <text x="0" y="66">• 7 Unit &amp; Adapter Tests</text>
+      </g>
+    </g>
+  </g>
+</svg>

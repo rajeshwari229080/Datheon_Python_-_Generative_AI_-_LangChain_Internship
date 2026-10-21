@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="675">
+  <defs>
+    <linearGradient id="linkedBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC" />
+      <stop offset="60%" stop-color="#F1F5F9" />
+      <stop offset="100%" stop-color="#E2E8F0" />
+    </linearGradient>
+    <linearGradient id="linkedBanner" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3B82F6" />
+      <stop offset="50%" stop-color="#6366F1" />
+      <stop offset="100%" stop-color="#8B5CF6" />
+    </linearGradient>
+    <filter id="lShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#0F172A" flood-opacity="0.08" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#linkedBg)" />
+
+  <!-- Top Accent Bar -->
+  <rect width="1200" height="10" fill="url(#linkedBanner)" />
+
+  <!-- Main Card Container -->
+  <rect x="50" y="45" width="1100" height="585" rx="20" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" filter="url(#lShadow)" />
+
+  <!-- Header Header -->
+  <g transform="translate(90, 85)">
+    <!-- Brand Pill -->
+    <rect width="260" height="32" rx="16" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1.2" />
+    <circle cx="16" cy="16" r="4.5" fill="#4F46E5" />
+    <text x="28" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#4338CA" letter-spacing="0.5">PROJECT SHOWCASE • GENAI</text>
+
+    <!-- Main Title -->
+    <text x="0" y="75" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="34" font-weight="800" fill="#0F172A" letter-spacing="-0.5">
+      ApexAI Engineering Suite
+    </text>
+    <text x="0" y="105" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="600" fill="#4F46E5">
+      Production Generative AI &amp; Autonomous Multi-Tool Systems
+    </text>
+    <text x="0" y="135" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="400" fill="#64748B">
+      Full-stack architecture featuring Pydantic JSON extraction, grounded RAG, AST-safe agents, and Streamlit.
+    </text>
+  </g>
+
+  <!-- Right Badges -->
+  <g transform="translate(860, 85)">
+    <rect width="250" height="95" rx="12" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2" />
+    <text x="20" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#64748B">VERIFIED COVERAGE</text>
+    <text x="20" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="30" font-weight="800" fill="#059669">32 / 32</text>
+    <text x="135" y="66" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Tests Passing Cleanly</text>
+  </g>
+
+  <!-- 4 Feature Mini-Cards -->
+  <!-- Card 1 -->
+  <g transform="translate(90, 255)">
+    <rect width="240" height="230" rx="12" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2" />
+    <rect width="240" height="4" rx="2" fill="#3B82F6" />
+    <g transform="translate(18, 24)">
+      <text x="0" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20">📑</text>
+      <text x="32" y="12" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#2563EB">TASK 1</text>
+      <text x="0" y="44" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="700" fill="#0F172A">Structured JSON</text>
+      <text x="0" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#64748B">Self-healing parser</text>
+      <text x="0" y="80" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#64748B">Pydantic v2 schemas</text>
+      <text x="0" y="96" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#64748B">Invoices &amp; Resumes</text>
+      <rect x="0" y="120" width="120" height="24" rx="6" fill="#DBEAFE" />
+      <text x="60" y="136" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#1D4ED8" text-anchor="middle">FastAPI + CLI</text>
+    </g>
+  </g>
+
+  <!-- Card 2 -->
+  <g transform="translate(355, 255)">
+    <rect width="240" height="230" rx="12" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2" />
+    <rect width="240" height="4" rx="2" fill="#10B981" />
+    <g transform="translate(18, 24)">
+      <text x="0" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20">📖</text>
+      <text x="32" y="12" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#059669">TASK 2</text>
+      <text x="0" y="44" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="700" fill="#0F172A">Grounded RAG</text>
+      <text x="0" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#64748B">PDF &amp; Text Parsing</text>
+      <text x="0" y="80" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#64748B">Cosine Vector Search</text>
+      <text x="0" y="96" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#64748B">Strict Abstention Rule</text>
+      <rect x="0" y="120" width="130" height="24" rx="6" fill="#D1FAE5" />
+      <text x="65" y="136" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#047857" text-anchor="middle">Zero Hallucination</text>
+    </g>
+  </g>
+
+  <!-- Card 3 -->
+  <g transform="translate(620, 255)">
+    <rect width="240" height="230" rx="12" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2" />
+    <rect width="240" height="4" rx="2" fill="#8B5CF6" />
+    <g transform="translate(18, 24)">
+      <text x="0" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20">⚙️</text>
+      <text x="32" y="12" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#7C3AED">TASK 3</text>
+      <text x="0" y="44" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="700" fill="#0F172A">ReAct AI Agent</text>
+      <text x="0" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#64748B">AST Math (No Eval)</text>
+      <text x="0" y="80" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#64748B">Jailed Path Security</text>
+      <text x="0" y="96" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#64748B">DuckDuckGo Search</text>
+      <rect x="0" y="120" width="130" height="24" rx="6" fill="#EDE9FE" />
+      <text x="65" y="136" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#6D28D9" text-anchor="middle">Autonomous Safe</text>
+    </g>
+  </g>
+
+  <!-- Card 4 -->
+  <g transform="translate(885, 255)">
+    <rect width="240" height="230" rx="12" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2" />
+    <rect width="240" height="4" rx="2" fill="#EF4444" />
+    <g transform="translate(18, 24)">
+      <text x="0" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20">💬</text>
+      <text x="32" y="12" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#DC2626">TASK 4</text>
+      <text x="0" y="44" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="700" fill="#0F172A">Streamlit Bot</text>
+      <text x="0" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#64748B">Real-Time Streaming</text>
+      <text x="0" y="80" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#64748B">Session Isolation</text>
+      <text x="0" y="96" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#64748B">Persona System</text>
+      <rect x="0" y="120" width="130" height="24" rx="6" fill="#FEE2E2" />
+      <text x="65" y="136" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#B91C1C" text-anchor="middle">Full-Stack Chat</text>
+    </g>
+  </g>
+
+  <!-- Footer Banner -->
+  <g transform="translate(90, 520)">
+    <rect width="1020" height="55" rx="10" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1" />
+    <text x="24" y="33" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" fill="#1E293B">GitHub Repository:</text>
+    <text x="170" y="33" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="500" fill="#4F46E5">github.com/rajeshwari229080/Python-Generative-AI-LangChain-Internship</text>
+    <rect x="880" y="12" width="116" height="30" rx="6" fill="#4F46E5" />
+    <text x="938" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">EXPLORE CODE</text>
+  </g>
+</svg>
