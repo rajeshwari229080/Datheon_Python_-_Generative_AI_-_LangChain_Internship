@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: apexai-portal
+    runtime: static
+    buildCommand: echo "Building ApexAI static portal"
+    staticPublishPath: .
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+  - type: web
+    name: apexai-task4-chatbot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run task4-streamlit-chatbot/app.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.0

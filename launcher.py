@@ -94,16 +94,70 @@ def launch_task(task_num: int):
     return 0
 
 
+def host_all():
+    """Hosts the complete AI operations suite concurrently across all ports."""
+    print("=" * 70)
+    print("  HOSTING COMPLETE APEXAI OPERATIONS SUITE (ALL SERVICES ONLINE)")
+    print("=" * 70)
+    print("  [Portal]     SaaS Central Portal:        http://127.0.0.1:8000/index.html")
+    print("  [Task 1]     Structured JSON Extractor:  http://127.0.0.1:8001")
+    print("  [Task 2]     Grounded Document RAG:      http://127.0.0.1:8002")
+    print("  [Task 4]     Streamlit Reactive Chatbot: http://127.0.0.1:8501")
+    print("=" * 70)
+    print("Starting background service processes... Press Ctrl+C to terminate all.")
+
+    processes = []
+    try:
+        # 1. Portal
+        cmd_portal = [sys.executable, "-m", "http.server", "8000", "--directory", BASE_DIR]
+        p_portal = subprocess.Popen(cmd_portal)
+        processes.append(("Portal (Port 8000)", p_portal))
+
+        # 2. Task 1
+        cmd_t1 = [sys.executable, os.path.join(BASE_DIR, "task1-json-extractor", "app.py"), "--serve", "--port", "8001"]
+        p_t1 = subprocess.Popen(cmd_t1)
+        processes.append(("Task 1 (Port 8001)", p_t1))
+
+        # 3. Task 2
+        cmd_t2 = [sys.executable, os.path.join(BASE_DIR, "task2-document-rag", "app.py"), "--serve", "--port", "8002"]
+        p_t2 = subprocess.Popen(cmd_t2)
+        processes.append(("Task 2 (Port 8002)", p_t2))
+
+        # 4. Task 4
+        cmd_t4 = ["streamlit", "run", os.path.join(BASE_DIR, "task4-streamlit-chatbot", "app.py"), "--server.port", "8501", "--server.headless", "true"]
+        p_t4 = subprocess.Popen(cmd_t4)
+        processes.append(("Task 4 (Port 8501)", p_t4))
+
+        try:
+            webbrowser.open("http://127.0.0.1:8000/index.html")
+        except Exception:
+            pass
+
+        for name, p in processes:
+            p.wait()
+    except KeyboardInterrupt:
+        print("\n[SHUTDOWN] Terminating all background processes cleanly...")
+        for name, p in processes:
+            p.terminate()
+        for name, p in processes:
+            p.wait()
+        print("[SUCCESS] All services stopped.")
+    return 0
+
+
 def main():
     parser = argparse.ArgumentParser(description="ApexAI Suite Master Launcher")
     parser.add_argument("--task", "-t", type=int, choices=[1, 2, 3, 4], help="Launch specific task (1-4)")
     parser.add_argument("--portal", "-p", action="store_true", help="Launch central index.html portal on port 8000")
     parser.add_argument("--port", type=int, default=8000, help="Custom port for portal (default: 8000)")
     parser.add_argument("--test", action="store_true", help="Execute automated test suites across all 4 projects")
+    parser.add_argument("--host-all", "--serve-all", dest="host_all", action="store_true", help="Host entire suite concurrently (Portal + Task 1, 2, 4)")
     args = parser.parse_args()
 
     if args.test:
         sys.exit(run_tests())
+    elif args.host_all:
+        sys.exit(host_all())
     elif args.portal:
         sys.exit(serve_portal(args.port))
     elif args.task:
@@ -113,6 +167,7 @@ def main():
         print("   APEX-AI OPERATIONS SUITE: MASTER LAUNCHER")
         print("=" * 70)
         print("Available options:")
+        print("  python launcher.py --host-all  # Host all 4 services + portal concurrently")
         print("  python launcher.py --portal    # Start central operations portal on http://127.0.0.1:8000")
         print("  python launcher.py --task 1    # Launch Task 1: Structured JSON Extractor")
         print("  python launcher.py --task 2    # Launch Task 2: Grounded Document RAG")
@@ -123,3 +178,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
