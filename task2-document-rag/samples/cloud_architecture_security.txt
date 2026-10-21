@@ -1,0 +1,18 @@
+# CLOUD INFRASTRUCTURE ARCHITECTURE & DATA GOVERNANCE HANDBOOK
+System Architecture Document: APX-ARCH-SEC-04
+Classification: Confidential - Internal Engineering Standards
+
+## 1. Zero-Trust Network Architecture
+All production network interfaces must operate within isolated Virtual Private Clouds (VPCs). Public internet exposure of database clusters, caching tiers (Redis), and internal inference microservices is strictly prohibited. Ingress traffic is routed exclusively through Cloudflare Enterprise WAF and AWS Application Load Balancers with mTLS enabled.
+
+## 2. Key Management and Data Encryption
+- Encryption at Rest: All persistent block storage volumes (EBS), object storage buckets (S3), and relational tables (PostgreSQL) must use AES-256 encryption managed via AWS KMS Customer Managed Keys (CMKs). Keys are rotated automatically every 365 days.
+- Encryption in Transit: TLS 1.3 is enforced on all internal and external communication channels. Legacy protocols (TLS 1.0, 1.1) are permanently disabled at the edge gateway.
+
+## 3. Access Control and Principle of Least Privilege
+Identity and Access Management (IAM) permissions follow the principle of least privilege. Root account access is locked behind physical FIDO2 hardware security keys. Developer access to staging and production clusters requires ephemeral role assumption via Teleport with mandatory multi-factor authentication (MFA) and a 4-hour session expiry limit.
+
+## 4. Disaster Recovery and Backup RTO/RPO
+- Recovery Point Objective (RPO): Database transaction logs are streamed continuously to secondary geographic regions with a maximum data loss window of 5 minutes.
+- Recovery Time Objective (RTO): Multi-region automated failover guarantees complete workload recovery within 30 minutes of primary region impairment.
+- Snapshot Frequency: Full disk snapshots are executed daily at 02:00 UTC and retained for 90 days.
