@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+junit/
+
+# Environment & Secrets
+.env
+*.local
+secrets.json
+
+# IDE & Editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+
+# Vector Stores & Persistent DBs
+chroma_db/
+faiss_index/
+*.sqlite3
+data_cache/
+
+# Uploads & Temporary artifacts
+uploads/
+temp_output/
+*.log
