@@ -5,6 +5,7 @@ Grounded RAG Answering Engine with Source Citations and Strict Hallucination Abs
 
 from __future__ import annotations
 import os
+import re
 import time
 from typing import List, Optional
 from pydantic import BaseModel, Field
