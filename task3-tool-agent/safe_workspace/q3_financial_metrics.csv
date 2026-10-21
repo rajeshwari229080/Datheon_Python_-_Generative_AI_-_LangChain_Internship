@@ -1,0 +1,6 @@
+metric,q1_actual,q2_actual,q3_actual,target_growth_pct
+enterprise_cloud_revenue,14500000,16200000,18800000,15.0
+data_platform_mrr,3200000,3600000,4100000,12.5
+infrastructure_operating_cost,8200000,8900000,9400000,-5.0
+net_operating_profit,9500000,10900000,13500000,20.0
+gross_margin_pct,68.5,70.2,71.8,72.0

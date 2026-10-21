@@ -1,0 +1,9 @@
+CLUSTER_NAME: US-WEST-GPU-PROD
+Total Active Nodes: 64
+Node Model: Supermicro GPU Server HGX H100
+GPUs Per Node: 8x NVIDIA H100 80GB SXM5 (Total: 512 GPUs)
+Host Memory: 2048 GB DDR5 per node (Total: 131,072 GB)
+Interconnect: Quantum-2 InfiniBand (3.2 Tbps per node)
+Average Utilization: 84.6%
+Monthly Power Draw: 760 Kilowatt-Hours per node
+Primary Point of Contact: sre-ops@apexai.internal
