@@ -38,7 +38,6 @@ class LLMClient:
         Executes generation against configured provider.
         Returns: (raw_response_text, provider_name, is_mock_flag)
         """
-        # Try Gemini if configured and key is present
         if self.provider == "gemini" and self.gemini_key and not self.gemini_key.startswith("your_"):
             try:
                 import google.generativeai as genai
@@ -49,7 +48,6 @@ class LLMClient:
             except Exception:
                 pass
 
-        # Try OpenAI if configured and key is present
         if self.provider == "openai" and self.openai_key and not self.openai_key.startswith("your_"):
             try:
                 from openai import OpenAI
@@ -67,9 +65,14 @@ class LLMClient:
         return self._generate_deterministic_mock(prompt), "deterministic-offline-mock", True
 
     def _generate_deterministic_mock(self, prompt: str) -> str:
-        """Parses the prompt to generate a schema-valid response from input text."""
+        """Parses the document portion of the prompt to generate a schema-valid response."""
+        # Isolate the current document text from few-shot exemplars
+        doc_text = prompt
+        if "### Current Document to Extract:" in prompt:
+            doc_text = prompt.split("### Current Document to Extract:")[-1]
+
         if "InvoiceSchema" in prompt or "line_items" in prompt:
-            inv_match = re.search(r"INV[-\d]+", prompt, re.IGNORECASE)
+            inv_match = re.search(r"INV[-\d]+", doc_text, re.IGNORECASE)
             inv_id = inv_match.group(0) if inv_match else "INV-2024-9102"
 
             return json.dumps({
@@ -111,7 +114,7 @@ class LLMClient:
                 "payment_terms": "Net 30"
             }, indent=2)
         else:
-            name_match = re.search(r"(?:Name:\s*|Dr\.\s*|Mr\.\s*)([A-Z][a-z]+ [A-Z][a-z]+)", prompt)
+            name_match = re.search(r"(?:Name:\s*|Dr\.\s*|Mr\.\s*)([A-Z][a-z]+ [A-Z][a-z]+)", doc_text)
             cand_name = name_match.group(1) if name_match else "Marcus Aurelius Vance"
 
             return json.dumps({

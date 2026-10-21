@@ -5,7 +5,7 @@ Re-exports InvoiceSchema, ResumeSchema, and ExtractionEnvelope.
 
 from __future__ import annotations
 from typing import Literal, Union, Dict, Any, List
-from datetime import datetime
+from datetime import datetime, timezone
 from pydantic import BaseModel, Field
 
 from invoice_schema import InvoiceSchema, InvoiceLineItem, VendorInfo, ClientInfo
@@ -21,4 +21,4 @@ class ExtractionEnvelope(BaseModel):
     raw_input_snippet: str
     data: Union[InvoiceSchema, ResumeSchema, Dict[str, Any]]
     validation_notes: List[str] = Field(default_factory=list)
-    extracted_at: str = Field(default_factory=lambda: datetime.utcnow().isoformat() + "Z")
+    extracted_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
