@@ -6,6 +6,12 @@
 </p>
 
 <p align="center">
+  <a href="https://rajeshwari229080.github.io/Python-Generative-AI-LangChain-Internship/"><img src="https://img.shields.io/badge/Live%20Portal-GitHub%20Pages-4F46E5?style=for-the-badge&logo=githubpages&logoColor=white" alt="Live Demo GitHub Pages" /></a>
+  <a href="https://github.com/rajeshwari229080/Python-Generative-AI-LangChain-Internship/actions"><img src="https://img.shields.io/badge/Run%20Tasks-GitHub%20Actions-059669?style=for-the-badge&logo=githubactions&logoColor=white" alt="Run on GitHub Actions" /></a>
+  <a href="https://share.streamlit.io/"><img src="https://img.shields.io/badge/Streamlit-Cloud%20Hosted-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Streamlit Cloud App" /></a>
+</p>
+
+<p align="center">
   <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.12-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3.12" /></a>
   <a href="https://docs.pydantic.dev/"><img src="https://img.shields.io/badge/Pydantic-v2.10-E92063?style=flat-square&logo=pydantic&logoColor=white" alt="Pydantic v2" /></a>
   <a href="https://fastapi.tiangolo.com/"><img src="https://img.shields.io/badge/FastAPI-0.115-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI" /></a>
@@ -182,8 +188,47 @@ python -m pytest task4-streamlit-chatbot/tests -v # 7 Passed
 
 ---
 
+## 🌐 Live Cloud Hosting & Deployment Options
+
+The entire suite is architected for instant deployment across multiple environments:
+
+### 1. Live Web Portal (GitHub Pages)
+The central SaaS portal is configured for automated deployment to GitHub Pages via GitHub Actions.
+- **Live URL**: [https://rajeshwari229080.github.io/Python-Generative-AI-LangChain-Internship/](https://rajeshwari229080.github.io/Python-Generative-AI-LangChain-Internship/)
+
+### 2. Run All 4 Tasks on GitHub Actions
+You can execute any of the 4 tasks (or the entire suite) directly in the cloud on GitHub without installing anything locally:
+1. Navigate to the **Actions** tab on GitHub: [Actions Workflows](https://github.com/rajeshwari229080/Python-Generative-AI-LangChain-Internship/actions)
+2. Select **Run AI Tasks on GitHub Actions**
+3. Click **Run workflow**, choose your task (`all`, `task1-json-extractor`, `task2-document-rag`, `task3-tool-agent`, or `task4-streamlit-chatbot`), and click **Run**
+4. View the live execution logs and streaming output directly in the GitHub Actions runner!
+
+### 3. Local Full-Stack Hosting (All Services Concurrent)
+Host all four services plus the central portal on your machine with a single command:
+```bash
+python launcher.py --host-all
+```
+This boots:
+- **Port 8000**: Central Operations Portal
+- **Port 8001**: Task 1 Structured JSON Extractor (FastAPI)
+- **Port 8002**: Task 2 Grounded Document RAG (FastAPI)
+- **Port 8501**: Task 4 Full-Stack Chatbot (Streamlit)
+
+### 4. Containerized Hosting (Docker & Docker Compose)
+Run the entire production stack inside isolated containers:
+```bash
+docker-compose up --build
+```
+
+### 5. 1-Click Cloud Deployment (Render & Streamlit Cloud)
+- **Streamlit Community Cloud**: Connect this repository on [share.streamlit.io](https://share.streamlit.io/) with main app file `task4-streamlit-chatbot/app.py`.
+- **Render.com**: Deploy using the included [`render.yaml`](./render.yaml) blueprint.
+
+---
+
 ## 👤 Attribution & Repository
 - **Program**: Google Antigravity Python + Generative AI & LangChain Internship
 - **Suite**: ApexAI Engineering Operations Suite
 - **Repository**: [github.com/rajeshwari229080/Python-Generative-AI-LangChain-Internship](https://github.com/rajeshwari229080/Python-Generative-AI-LangChain-Internship)
 - **LinkedIn Showcase**: [`linkedin.md`](./linkedin.md)
+

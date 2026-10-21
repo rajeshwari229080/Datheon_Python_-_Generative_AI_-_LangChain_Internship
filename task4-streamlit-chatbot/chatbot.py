@@ -196,3 +196,25 @@ class ChatbotEngine:
             lines.append(m.content)
             lines.append("")
         return "\n".join(lines)
+
+
+if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser(description="ApexAI Task 4 Chatbot CLI Runner")
+    parser.add_argument("--prompt", "-p", type=str, default="How do we scale vector databases for million-token corpora?", help="User prompt")
+    parser.add_argument("--persona", type=str, default="Staff AI Architect", help="Persona name")
+    parser.add_argument("--provider", type=str, default=None, help="Provider (gemini, openai, mock)")
+    args = parser.parse_args()
+
+    engine = ChatbotEngine(provider=args.provider, persona=args.persona)
+    print("=" * 70)
+    print(f"  APEX-AI TASK 4 CHATBOT: {args.persona.upper()}")
+    print("=" * 70)
+    print(f"\nUser: {args.prompt}\n")
+    print("Assistant: ", end="", flush=True)
+    for token in engine.stream_response(args.prompt):
+        print(token, end="", flush=True)
+    print("\n\n" + "=" * 70)
+    print(f"Status: OK | Persona: {engine.active_persona} | Messages: {len(engine.history)}")
+    print("=" * 70)
+

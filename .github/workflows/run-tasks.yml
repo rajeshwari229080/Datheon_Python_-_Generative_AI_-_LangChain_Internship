@@ -1,0 +1,81 @@
+name: Run AI Tasks on GitHub
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      selected_task:
+        description: 'Choose which AI task to execute on GitHub'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - 'all'
+          - 'task1-json-extractor'
+          - 'task2-document-rag'
+          - 'task3-tool-agent'
+          - 'task4-streamlit-chatbot'
+
+jobs:
+  execute-tasks:
+    name: Execute AI Internship Tasks on GitHub
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Task 1 — Structured JSON Extractor
+        if: ${{ github.event.inputs.selected_task == 'all' || github.event.inputs.selected_task == 'task1-json-extractor' || github.event_name == 'push' }}
+        run: |
+          echo "======================================================================"
+          echo "  RUNNING TASK 1: STRUCTURED JSON EXTRACTOR DEMO"
+          echo "======================================================================"
+          python task1-json-extractor/app.py --extract task1-json-extractor/samples/invoice_001.txt --type invoice
+          python task1-json-extractor/app.py --extract task1-json-extractor/samples/resume_001.txt --type resume
+
+      - name: Run Task 2 — Grounded Document RAG
+        if: ${{ github.event.inputs.selected_task == 'all' || github.event.inputs.selected_task == 'task2-document-rag' || github.event_name == 'push' }}
+        run: |
+          echo "======================================================================"
+          echo "  RUNNING TASK 2: GROUNDED DOCUMENT RAG DEMO"
+          echo "======================================================================"
+          python task2-document-rag/app.py --query "What is the maximum hotel allowance for Tier 1 cities?"
+          python task2-document-rag/app.py --query "What is the company policy on space travel to Mars?"
+
+      - name: Run Task 3 — Autonomous ReAct Multi-Tool Agent
+        if: ${{ github.event.inputs.selected_task == 'all' || github.event.inputs.selected_task == 'task3-tool-agent' || github.event_name == 'push' }}
+        run: |
+          echo "======================================================================"
+          echo "  RUNNING TASK 3: MULTI-TOOL AUTONOMOUS AGENT DEMO"
+          echo "======================================================================"
+          python task3-tool-agent/main.py --query "Calculate the hardware cost of 3 servers at 1450 each with 8 percent tax, and read hardware_inventory.txt"
+
+      - name: Run Task 4 — Interactive Full-Stack Chatbot
+        if: ${{ github.event.inputs.selected_task == 'all' || github.event.inputs.selected_task == 'task4-streamlit-chatbot' || github.event_name == 'push' }}
+        run: |
+          echo "======================================================================"
+          echo "  RUNNING TASK 4: STREAMLIT CHATBOT TOKEN STREAMING DEMO"
+          echo "======================================================================"
+          python task4-streamlit-chatbot/chatbot.py --persona "Staff AI Architect" --prompt "What are the architectural tradeoffs between dense and sparse vector retrieval in RAG systems?"
+          python task4-streamlit-chatbot/chatbot.py --persona "AppSec & Code Auditor" --prompt "How do we secure LLM agent tool calls against prompt injection and directory traversal?"
+
+      - name: Execute Complete 32-Test Verification Suite
+        run: |
+          echo "======================================================================"
+          echo "  VERIFYING ALL 32 AUTOMATED UNIT & INTEGRATION TESTS"
+          echo "======================================================================"
+          python launcher.py --test
