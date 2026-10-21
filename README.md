@@ -2,7 +2,7 @@
 ## ApexAI Suite: Production-Grade Multi-Task AI Engineering System
 
 <p align="center">
-  <img src="./assets/hero_light.svg" alt="ApexAI Architecture Hero" width="100%" />
+  <img src="./assets/hero_light.png" alt="ApexAI Architecture Hero" width="100%" />
 </p>
 
 <p align="center">
@@ -22,7 +22,7 @@ An enterprise-ready AI engineering suite built for the **Google Antigravity Pyth
 ## 🏛️ Four Production AI Engineering Pillars
 
 <p align="center">
-  <img src="./assets/tasks_overview_light.svg" alt="ApexAI Four Pillars Architecture" width="100%" />
+  <img src="./assets/tasks_overview_light.png" alt="ApexAI Four Pillars Architecture" width="100%" />
 </p>
 
 | Pillar | Task Directory | Core Technology | Primary Capabilities | Test Gate |
@@ -37,7 +37,7 @@ An enterprise-ready AI engineering suite built for the **Google Antigravity Pyth
 ## 🔄 End-to-End Pipeline & Integration Flow
 
 <p align="center">
-  <img src="./assets/pipeline_architecture_light.svg" alt="ApexAI End-to-End Pipeline Architecture" width="100%" />
+  <img src="./assets/pipeline_architecture_light.png" alt="ApexAI End-to-End Pipeline Architecture" width="100%" />
 </p>
 
 ---
@@ -47,11 +47,12 @@ An enterprise-ready AI engineering suite built for the **Google Antigravity Pyth
 A complete ready-to-share technical showcase package has been generated for LinkedIn, portfolio reviews, and presentations:
 
 <p align="center">
-  <img src="./assets/linkedin_post.svg" alt="ApexAI Suite Showcase Banner" width="100%" />
+  <img src="./assets/linkedin_post.png" alt="ApexAI Suite Showcase Banner" width="100%" />
 </p>
 
-- **High-Resolution PNG Poster**: [`image.png`](./image.png) (1200x675)
+- **High-Resolution PNG Poster**: [`image.png`](./image.png) / [`assets/linkedin_post.png`](./assets/linkedin_post.png) (1200x675)
 - **Vector Scalable Graphic**: [`assets/linkedin_post.svg`](./assets/linkedin_post.svg)
+- **All PNG Diagrams**: [`assets/hero_light.png`](./assets/hero_light.png), [`assets/tasks_overview_light.png`](./assets/tasks_overview_light.png), [`assets/pipeline_architecture_light.png`](./assets/pipeline_architecture_light.png)
 - **Complete LinkedIn Post Copy**: [`linkedin.md`](./linkedin.md) *(includes hooks, metrics, technical breakdown, and hashtags)*
 
 ---

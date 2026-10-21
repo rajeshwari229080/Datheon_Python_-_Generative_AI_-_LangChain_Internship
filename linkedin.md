@@ -83,13 +83,13 @@ Check out the full open-source implementation, architecture diagrams, and docume
 ## 🎨 Creative Light-Theme Visual Elements
 
 ### 1. Master System Banner
-![Hero Banner](./assets/hero_light.svg)
+![Hero Banner](./assets/hero_light.png)
 
 ### 2. Four Pillars Architecture
-![Tasks Overview](./assets/tasks_overview_light.svg)
+![Tasks Overview](./assets/tasks_overview_light.png)
 
 ### 3. End-to-End Execution Pipeline
-![Pipeline Architecture](./assets/pipeline_architecture_light.svg)
+![Pipeline Architecture](./assets/pipeline_architecture_light.png)
 
 ---
 

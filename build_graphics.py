@@ -563,9 +563,294 @@ def create_png_showcase():
     print(f"Created: {assets_png}")
 
 
+def create_hero_png():
+    """Renders hero_light.png in high resolution using PIL."""
+    w, h = 1200, 440
+    img = Image.new("RGB", (w, h), color=(248, 250, 252))
+    draw = ImageDraw.Draw(img)
+
+    # Subtle gradient background
+    for y in range(h):
+        r = int(248 - (248 - 239) * (y / h))
+        g = int(250 - (250 - 246) * (y / h))
+        b = int(252 - (252 - 255) * (y / h))
+        draw.line([(0, y), (w, y)], fill=(r, g, b))
+
+    # Outer border
+    draw.rounded_rectangle([(10, 10), (w - 10, h - 10)], radius=18, fill=None, outline=(226, 232, 240), width=2)
+
+    try:
+        font_title = ImageFont.truetype("arialbd.ttf", 32)
+        font_sub = ImageFont.truetype("arialbd.ttf", 18)
+        font_body = ImageFont.truetype("arial.ttf", 14)
+        font_pill = ImageFont.truetype("arialbd.ttf", 11)
+        font_stat_title = ImageFont.truetype("arialbd.ttf", 11)
+        font_stat_num = ImageFont.truetype("arialbd.ttf", 26)
+        font_stat_sub = ImageFont.truetype("arial.ttf", 12)
+    except Exception:
+        font_title = font_sub = font_body = font_pill = font_stat_title = font_stat_num = font_stat_sub = ImageFont.load_default()
+
+    # Top status pill
+    draw.rounded_rectangle([(50, 45), (390, 78)], radius=16, fill=(255, 255, 255), outline=(199, 210, 254), width=1)
+    draw.ellipse([(66, 57), (74, 65)], fill=(16, 185, 129))
+    draw.text((82, 54), "APEX-AI SUITE • PRODUCTION VERIFIED", fill=(67, 56, 202), font=font_pill)
+
+    # Main headlines
+    draw.text((50, 100), "Generative AI & LangChain Architecture", fill=(15, 23, 42), font=font_title)
+    draw.text((50, 145), "Enterprise-Grade Four-Pillar AI System", fill=(79, 70, 229), font=font_sub)
+
+    draw.text((50, 185), "A complete AI engineering implementation delivering robust JSON extractors, grounded document RAG,", fill=(71, 85, 105), font=font_body)
+    draw.text((50, 208), "sandboxed autonomous ReAct agents, and interactive streaming chatbots with dual live & mock modes.", fill=(71, 85, 105), font=font_body)
+
+    # Tech Chips
+    chips = [
+        ("🐍 Python 3.12", (30, 41, 59), (255, 255, 255), (226, 232, 240)),
+        ("⚡ Pydantic v2", (5, 150, 105), (255, 255, 255), (226, 232, 240)),
+        ("🚀 FastAPI", (2, 132, 199), (255, 255, 255), (226, 232, 240)),
+        ("🎈 Streamlit", (220, 38, 38), (255, 255, 255), (226, 232, 240)),
+        ("🦜 LangChain", (124, 58, 237), (255, 255, 255), (226, 232, 240)),
+        ("✅ 32/32 Tests Pass", (6, 95, 70), (236, 253, 245), (167, 243, 208)),
+    ]
+    cur_x = 50
+    chip_y = 265
+    for label, text_col, bg_col, border_col in chips:
+        draw.rounded_rectangle([(cur_x, chip_y), (cur_x + 120, chip_y + 32)], radius=8, fill=bg_col, outline=border_col, width=1)
+        draw.text((cur_x + 10, chip_y + 8), label, fill=text_col, font=font_pill)
+        cur_x += 128
+
+    # Right metric cards
+    m_x = 850
+    m_w = 300
+    metrics = [
+        ("AUTOMATED TEST SUITE", "100%", "32 Passed Across 4 Suites", (5, 150, 105), 45),
+        ("RAG GROUNDING CONFIDENCE", "0.45", "Strict Abstention Gating", (79, 70, 229), 160),
+        ("AGENT SECURITY SANDBOX", "AST", "Zero Eval / Path Jailed", (124, 58, 237), 275),
+    ]
+    for m_label, m_num, m_sub, num_col, m_y in metrics:
+        draw.rounded_rectangle([(m_x, m_y), (m_x + m_w, m_y + 95)], radius=12, fill=(255, 255, 255), outline=(226, 232, 240), width=1)
+        draw.text((m_x + 20, m_y + 15), m_label, fill=(100, 116, 139), font=font_stat_title)
+        draw.text((m_x + 20, m_y + 40), m_num, fill=num_col, font=font_stat_num)
+        draw.text((m_x + 100, m_y + 48), m_sub, fill=(15, 23, 42), font=font_stat_sub)
+
+    # Bottom accent line
+    for x in range(w - 20):
+        r = int(79 + (124 - 79) * (x / w))
+        g = int(70 + (58 - 70) * (x / w))
+        b = int(229 + (237 - 229) * (x / w))
+        draw.line([(10 + x, h - 16), (10 + x, h - 10)], fill=(r, g, b))
+
+    out_path = os.path.join(ASSETS_DIR, "hero_light.png")
+    img.save(out_path, format="PNG")
+    print(f"Created: {out_path}")
+
+
+def create_tasks_png():
+    """Renders tasks_overview_light.png in high resolution using PIL."""
+    w, h = 1200, 520
+    img = Image.new("RGB", (w, h), color=(255, 255, 255))
+    draw = ImageDraw.Draw(img)
+
+    # Outer border
+    draw.rounded_rectangle([(10, 10), (w - 10, h - 10)], radius=16, fill=(248, 250, 252), outline=(226, 232, 240), width=2)
+
+    try:
+        font_head = ImageFont.truetype("arialbd.ttf", 26)
+        font_subhead = ImageFont.truetype("arial.ttf", 14)
+        font_card_num = ImageFont.truetype("arialbd.ttf", 12)
+        font_card_title = ImageFont.truetype("arialbd.ttf", 16)
+        font_bullet = ImageFont.truetype("arial.ttf", 12)
+        font_pill = ImageFont.truetype("arialbd.ttf", 11)
+    except Exception:
+        font_head = font_subhead = font_card_num = font_card_title = font_bullet = font_pill = ImageFont.load_default()
+
+    # Section headers
+    draw.text((50, 35), "Four Production-Grade AI Engineering Pillars", fill=(15, 23, 42), font=font_head)
+    draw.text((50, 72), "Modular architectures built with deterministic fail-safes and enterprise testing standards.", fill=(100, 116, 139), font=font_subhead)
+
+    cards = [
+        {
+            "tag": "TASK 01",
+            "title": "Structured JSON\nLLM Pipeline",
+            "color": (59, 130, 246),
+            "status": "11 / 11 Passed",
+            "bullets": [
+                "Pydantic v2 Validation",
+                "Multi-Pass JSON Healer",
+                "Financial Invoices & Resumes",
+                "FastAPI UI & CLI Runner",
+                "11 Automated Pytests"
+            ]
+        },
+        {
+            "tag": "TASK 02",
+            "title": "Grounded RAG\nDocument Q&A",
+            "color": (16, 185, 129),
+            "status": "5 / 5 Passed",
+            "bullets": [
+                "PDF & Text Parsing",
+                "Recursive Chunker (500ch)",
+                "Cosine Vector Retrieval",
+                "Page-Level Citations",
+                "Zero-Hallucination Guard"
+            ]
+        },
+        {
+            "tag": "TASK 03",
+            "title": "Autonomous ReAct\nMulti-Tool Agent",
+            "color": (139, 92, 246),
+            "status": "9 / 9 Passed",
+            "bullets": [
+                "AST Math (Zero eval)",
+                "Jailed Path Traversal",
+                "DuckDuckGo Web Search",
+                "Trace Audit Logging",
+                "9 Sandbox Tests Pass"
+            ]
+        },
+        {
+            "tag": "TASK 04",
+            "title": "Interactive Full-Stack\nStreamlit Bot",
+            "color": (239, 68, 68),
+            "status": "7 / 7 Passed",
+            "bullets": [
+                "Real-Time Token Stream",
+                "Session State Isolation",
+                "3 Persona System Presets",
+                "Markdown & JSON Export",
+                "7 Unit & Adapter Tests"
+            ]
+        }
+    ]
+
+    card_w = 255
+    gap = 25
+    start_x = 50
+    start_y = 115
+    card_h = 360
+
+    for i, c in enumerate(cards):
+        cx = start_x + i * (card_w + gap)
+        draw.rounded_rectangle([(cx, start_y), (cx + card_w, start_y + card_h)], radius=14, fill=(255, 255, 255), outline=(226, 232, 240), width=1)
+        # Top color accent
+        draw.rounded_rectangle([(cx, start_y), (cx + card_w, start_y + 6)], radius=3, fill=c["color"])
+
+        # Tag
+        draw.text((cx + 20, start_y + 24), c["tag"], fill=c["color"], font=font_card_num)
+        # Title (handling 2 lines)
+        lines = c["title"].split("\n")
+        draw.text((cx + 20, start_y + 46), lines[0], fill=(15, 23, 42), font=font_card_title)
+        if len(lines) > 1:
+            draw.text((cx + 20, start_y + 68), lines[1], fill=(15, 23, 42), font=font_card_title)
+
+        # Bullets
+        by = start_y + 110
+        for b in c["bullets"]:
+            draw.text((cx + 20, by), f"• {b}", fill=(71, 85, 105), font=font_bullet)
+            by += 26
+
+        # Status Pill at bottom
+        draw.rounded_rectangle([(cx + 20, start_y + card_h - 45), (cx + card_w - 20, start_y + card_h - 15)], radius=8, fill=(248, 250, 252), outline=(226, 232, 240), width=1)
+        draw.text((cx + 30, start_y + card_h - 36), f"Test Gate: {c['status']}", fill=(15, 23, 42), font=font_pill)
+
+    out_path = os.path.join(ASSETS_DIR, "tasks_overview_light.png")
+    img.save(out_path, format="PNG")
+    print(f"Created: {out_path}")
+
+
+def create_pipeline_png():
+    """Renders pipeline_architecture_light.png in high resolution using PIL."""
+    w, h = 1200, 380
+    img = Image.new("RGB", (w, h), color=(248, 250, 252))
+    draw = ImageDraw.Draw(img)
+
+    draw.rounded_rectangle([(10, 10), (w - 10, h - 10)], radius=16, fill=(255, 255, 255), outline=(226, 232, 240), width=2)
+
+    try:
+        font_head = ImageFont.truetype("arialbd.ttf", 24)
+        font_subhead = ImageFont.truetype("arial.ttf", 13)
+        font_step_tag = ImageFont.truetype("arialbd.ttf", 10)
+        font_step_title = ImageFont.truetype("arialbd.ttf", 15)
+        font_bullet = ImageFont.truetype("arial.ttf", 12)
+        font_tag = ImageFont.truetype("arialbd.ttf", 11)
+    except Exception:
+        font_head = font_subhead = font_step_tag = font_step_title = font_bullet = font_tag = ImageFont.load_default()
+
+    draw.text((50, 35), "End-to-End Execution & Integration Flow", fill=(15, 23, 42), font=font_head)
+    draw.text((50, 68), "How raw unstructured data flows through schema validation, retrieval grounding, and multi-agent loops.", fill=(100, 116, 139), font=font_subhead)
+
+    steps = [
+        {
+            "tag": "STEP 1 • INPUT INGESTION",
+            "title": "Raw Text & PDF",
+            "color": (59, 130, 246),
+            "badge": "PDF & Text Parsers",
+            "bullets": ["Financial Invoices", "Engineering Resumes", "Corporate Policies"]
+        },
+        {
+            "tag": "STEP 2 • CHUNKING & SCHEMAS",
+            "title": "Pydantic & Vector",
+            "color": (16, 185, 129),
+            "badge": "Validated Schemas",
+            "bullets": ["Multi-Pass JSON Healer", "500-char Chunker", "Cosine Vector Space"]
+        },
+        {
+            "tag": "STEP 3 • AGENT REASONING",
+            "title": "Sandboxed ReAct",
+            "color": (139, 92, 246),
+            "badge": "Execution Trace Guard",
+            "bullets": ["AST Safe Calculator", "Jailed Path File Reader", "DuckDuckGo Search"]
+        },
+        {
+            "tag": "STEP 4 • CLIENT PORTAL",
+            "title": "SaaS & Streamlit",
+            "color": (239, 68, 68),
+            "badge": "Interactive Portal",
+            "bullets": ["Token Stream Generator", "Session State Manager", "Central index.html"]
+        }
+    ]
+
+    box_w = 230
+    box_h = 220
+    box_gap = 55
+    start_x = 50
+    start_y = 110
+
+    for i, s in enumerate(steps):
+        bx = start_x + i * (box_w + box_gap)
+        draw.rounded_rectangle([(bx, start_y), (bx + box_w, start_y + box_h)], radius=12, fill=(248, 250, 252), outline=(226, 232, 240), width=1)
+        draw.rounded_rectangle([(bx, start_y), (bx + box_w, start_y + 5)], radius=2, fill=s["color"])
+
+        draw.text((bx + 16, start_y + 20), s["tag"], fill=s["color"], font=font_step_tag)
+        draw.text((bx + 16, start_y + 44), s["title"], fill=(15, 23, 42), font=font_step_title)
+
+        by = start_y + 80
+        for b in s["bullets"]:
+            draw.text((bx + 16, by), f"• {b}", fill=(71, 85, 105), font=font_bullet)
+            by += 22
+
+        # Bottom badge
+        draw.rounded_rectangle([(bx + 16, start_y + box_h - 42), (bx + box_w - 16, start_y + box_h - 16)], radius=6, fill=(255, 255, 255), outline=(203, 213, 225), width=1)
+        draw.text((bx + 30, start_y + box_h - 34), s["badge"], fill=s["color"], font=font_tag)
+
+        # Arrow to next step
+        if i < len(steps) - 1:
+            ax = bx + box_w + 14
+            ay = start_y + box_h // 2
+            draw.line([(ax, ay), (ax + 26, ay)], fill=(148, 163, 184), width=3)
+            draw.polygon([(ax + 26, ay - 6), (ax + 36, ay), (ax + 26, ay + 6)], fill=(148, 163, 184))
+
+    out_path = os.path.join(ASSETS_DIR, "pipeline_architecture_light.png")
+    img.save(out_path, format="PNG")
+    print(f"Created: {out_path}")
+
+
 if __name__ == "__main__":
     create_hero_svg()
     create_tasks_svg()
     create_pipeline_svg()
     create_linkedin_svg()
     create_png_showcase()
+    create_hero_png()
+    create_tasks_png()
+    create_pipeline_png()
+
